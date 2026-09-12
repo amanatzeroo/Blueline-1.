@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Line Facility Management LLC | Abu Dhabi</title>
+  <meta name="description" content="Blue Line Facility Management LLC - Premier property maintenance and specialist kitchen hood, duct, and extraction cleaning in Abu Dhabi, UAE.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: '#030a16',
+              surface: '#071326',
+              card: '#0a1a33',
+              cyan: '#00e5ff',
+              blue: '#0066ff'
+            }
+          },
+          fontFamily: {
+            heading: ['Syne', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #030a16;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    .font-syne { font-family: 'Syne', sans-serif; }
+    
+    .glass-panel {
+      background: rgba(10, 26, 51, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-pill {
+      background: rgba(7, 19, 38, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+    }
+
+    .cyan-glow {
+      box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #00e5ff 0%, #0077ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .modal-overlay {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .modal-overlay:not(.hidden) {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="selection:bg-[#00e5ff] selection:text-black">
+
+  <!-- Floating Navigation -->
+  <header class="fixed top-4 inset-x-0 z-50 px-4">
+    <nav class="max-w-6xl mx-auto h-16 glass-pill rounded-full flex items-center justify-between px-6 transition shadow-2xl">
+      <a href="#hero" class="flex items-center gap-3">
+        <span class="w-3 h-3 rounded-full bg-[#00e5ff] shadow-[0_0_12px_#00e5ff]"></span>
+        <div class="flex flex-col">
+          <span class="font-syne text-base sm:text-lg font-extrabold tracking-wider text-white leading-none">BLUE LINE</span>
+          <span class="text-[9px] font-bold tracking-[0.2em] text-[#00e5ff]">FACILITY MANAGEMENT</span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#services" class="hover:text-[#00e5ff] transition">Services</a>
+        <a href="#packages" class="hover:text-[#00e5ff] transition">Packages</a>
+        <a href="#specialist" class="hover:text-[#00e5ff] transition">Specialist Scope</a>
+        <a href="#estimator" class="hover:text-[#00e5ff] transition">AED Estimator</a>
+        <a href="#approach" class="hover:text-[#00e5ff] transition">Approach</a>
+        <a href="#about" class="hover:text-[#00e5ff] transition">About</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/971526186156?text=Hello%20Blue%20Line%20Facility%20Management%2C%20I%20need%20a%20property%20maintenance%20quote" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="bg-[#00e5ff]/10 hover:bg-[#00e5ff] text-[#00e5ff] hover:text-black border border-[#00e5ff]/30 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition cyan-glow flex items-center gap-2">
+          <span>WhatsApp</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden max-w-6xl mx-auto mt-2 glass-panel rounded-3xl p-6 border border-[#00e5ff]/20">
+      <div class="flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-slate-200">
+        <a href="#services" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">Services</a>
+        <a href="#packages" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">Packages</a>
+        <a href="#specialist" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">Specialist Scope</a>
+        <a href="#estimator" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">AED Estimator</a>
+        <a href="#approach" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">Our Approach</a>
+        <a href="#about" class="hover:text-[#00e5ff] py-1" onclick="toggleMenu()">About Blue Line</a>
+        <a href="tel:+971526186156" class="text-[#00e5ff] py-1">Call: +971 52 618 6156</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section id="hero" class="relative min-h-screen flex items-center pt-32 pb-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,#0d284d_0%,#040c1a_50%,#030a16_100%)]"></div>
+      <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:48px_48px]"></div>
+      <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#030a16] to-transparent"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10 w-full">
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/30 mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping"></span>
+        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#00e5ff]">Abu Dhabi, United Arab Emirates</span>
+      </div>
+
+      <h1 class="font-syne text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] max-w-4xl mb-6">
+        Facility care,<br>
+        <span class="text-gradient">done properly.</span>
+      </h1>
+
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed mb-10">
+        Blue Line Facility Management LLC provides professional property maintenance and specialist cleaning services in Abu Dhabi. Built for commercial compliance, preventative mechanical upkeep, and emergency responsiveness.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 mb-16">
+        <a href="https://wa.me/971526186156?text=Hello%20Blue%20Line%2C%20I%20would%20like%20to%20request%20a%20facility%20service" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="px-8 py-4 rounded-full bg-gradient-to-r from-[#00e5ff] to-[#0077ff] text-black font-extrabold text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg cyan-glow flex items-center gap-2">
+          <span>Request a Service</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="#services" 
+           class="px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-sm uppercase tracking-wider border border-white/15 transition backdrop-blur-sm">
+          Explore Services
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 border-t border-white/10 max-w-4xl text-left">
+        <div>
+          <span class="font-syne text-2xl sm:text-3xl font-bold text-white">100%</span>
+          <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Civil Defense Aligned</p>
+        </div>
+        <div>
+          <span class="font-syne text-2xl sm:text-3xl font-bold text-[#00e5ff]">24/7</span>
+          <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Dispatch Response</p>
+        </div>
+        <div>
+          <span class="font-syne text-2xl sm:text-3xl font-bold text-white">0%</span>
+          <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Operational Downtime</p>
+        </div>
+        <div>
+          <span class="font-syne text-2xl sm:text-3xl font-bold text-[#00e5ff]">Abu Dhabi</span>
+          <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Emirate Coverage</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CORE SERVICES SECTION -->
+  <section id="services" class="py-24 px-6 relative bg-[#030a16]">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mb-16">
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Core Competencies</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white leading-tight">
+          Engineered maintenance.<br>
+          <span class="text-gradient">Specialist execution.</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-4">
+          All operations comply strictly with Abu Dhabi Municipality health mandates, NFPA 96 fire safety codes, and civil defense sanitation benchmarks.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">🔥</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">01</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Kitchen Hood Cleaning</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Complete degreasing of commercial canopies, vapor collection channels, and inner plenum surfaces to eliminate dangerous combustible fire grease.
+            </p>
+          </div>
+          <button onclick="openModal('hood')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">🌪️</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">02</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Kitchen Duct Cleaning</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Rotary mechanical scraping and food-safe chemical degreasing across hidden horizontal ducting and vertical risers to bare metal standard.
+            </p>
+          </div>
+          <button onclick="openModal('duct')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">⚙️</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">03</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Exhaust & Fan Cleaning</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Restoring static pressure and motor balance by stripping hardened carbon and grease deposits from centrifugal impeller blades and housings.
+            </p>
+          </div>
+          <button onclick="openModal('fan')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">🧼</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">04</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Grease Filter Cleaning</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Thermal immersion degreaser soak and pressurized hot wash for stainless steel baffle filters, ensuring unrestricted kitchen ventilation.
+            </p>
+          </div>
+          <button onclick="openModal('filter')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">🏢</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">05</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Commercial Deep Cleaning</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Hospital-grade disinfection and heavy industrial scrubbing across commercial premises, food prep lines, walls, and cold-storage chambers.
+            </p>
+          </div>
+          <button onclick="openModal('deep')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="glass-panel p-8 rounded-3xl hover:border-[#00e5ff]/50 transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-2xl">🔧</span>
+              <span class="font-syne text-xs font-bold text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20">06</span>
+            </div>
+            <h3 class="font-syne text-xl font-bold text-white group-hover:text-[#00e5ff] transition mb-3">Property Maintenance</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Complete MEP preventive servicing, electrical inspection, plumbing overhaul, and continuous annual maintenance contracts across Abu Dhabi.
+            </p>
+          </div>
+          <button onclick="openModal('mep')" class="w-full py-3 rounded-2xl bg-white/5 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition border border-white/10 hover:border-[#00e5ff]">
+            View Technical Specs →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMMERCIAL PACKAGES SECTION -->
+  <section id="packages" class="py-24 px-6 relative bg-gradient-to-b from-[#030a16] via-[#051124] to-[#030a16]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Transparent Commercial Tiers</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white">Commercial Service Packages</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-4">
+          Structured scopes designed for Abu Dhabi restaurants, cloud kitchens, hotels, and commercial properties.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Tier 1 -->
+        <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between border border-white/10">
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 bg-white/5 px-3 py-1 rounded-full">Essential Tier</span>
+            <h3 class="font-syne text-2xl font-bold text-white mt-4">Routine Compliance Clean</h3>
+            <p class="text-xs text-slate-400 mt-2">Tailored for cafes, bistros, and small commercial bakeries.</p>
+            
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <span class="text-3xl font-extrabold text-[#00e5ff] font-syne">1,200 - 1,800 AED</span>
+              <span class="text-xs text-slate-400 block mt-1">Estimated one-time service</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Canopy hood & gutter degreasing</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Primary grease baffle filters soak</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Accessible horizontal duct wash (up to 8m)</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Abu Dhabi compliance photo report</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/971526186156?text=Inquiry%20regarding%20Routine%20Compliance%20Package%20(1,200%20AED)" 
+             target="_blank" 
+             class="mt-10 w-full py-4 rounded-2xl bg-white/10 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider text-center transition">
+            Book Routine Package
+          </a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between border-2 border-[#00e5ff] relative cyan-glow transform lg:-translate-y-2">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#00e5ff] text-black text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
+            Most Selected in Abu Dhabi
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full">Complete Scope</span>
+            <h3 class="font-syne text-2xl font-bold text-white mt-4">Full Extraction Overhaul</h3>
+            <p class="text-xs text-slate-400 mt-2">Recommended for busy restaurants, grilling stations, and fast food kitchens.</p>
+            
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <span class="text-3xl font-extrabold text-[#00e5ff] font-syne">2,400 - 3,500 AED</span>
+              <span class="text-xs text-slate-400 block mt-1">Complete system deep overhaul</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-200">
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Everything in Routine Compliance</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Entire duct run & vertical riser degreasing</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Rooftop exhaust fan & impeller deep scrub</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Mechanical access panel inspection & re-sealing</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Civil Defense Certification Pack</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/971526186156?text=Inquiry%20regarding%20Full%20Extraction%20Overhaul%20(2,800%20AED)" 
+             target="_blank" 
+             class="mt-10 w-full py-4 rounded-2xl bg-[#00e5ff] hover:bg-white text-black font-extrabold text-xs uppercase tracking-wider text-center transition shadow-lg">
+            Book Full Overhaul
+          </a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between border border-white/10">
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 bg-white/5 px-3 py-1 rounded-full">Annual Contract</span>
+            <h3 class="font-syne text-2xl font-bold text-white mt-4">Facility Master AMC</h3>
+            <p class="text-xs text-slate-400 mt-2">Comprehensive yearly management for hotel kitchens and multi-unit chains.</p>
+            
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <span class="text-3xl font-extrabold text-white font-syne">Custom Retainer</span>
+              <span class="text-xs text-slate-400 block mt-1">Quarterly or bi-monthly servicing</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> 4x Scheduled full extraction overhauls per year</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Priority 24/7 emergency dispatch team</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Routine MEP & electrical kitchen checkups</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#00e5ff]">✓</span> Dedicated compliance officer</li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/971526186156?text=Inquiry%20regarding%20Annual%20Facility%20Master%20AMC%20Contract" 
+             target="_blank" 
+             class="mt-10 w-full py-4 rounded-2xl bg-white/10 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider text-center transition">
+            Inquire AMC Contract
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SPECIALIST CLEANING SECTION -->
+  <section id="specialist" class="py-24 px-6 relative bg-[#030a16] border-y border-white/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Total Concealed Protection</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white leading-tight mb-6">
+          From the visible<br>
+          <span class="text-gradient">to the hard-to-reach.</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+          Standard surface cleaning only tackles what the eye sees. Dangerous grease vapor travels past the hood, settling into concealed duct shafts, fan motors, and exhaust discharge chimneys.
+        </p>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
+          Blue Line's specialized equipment reaches deep inside vertical risers and enclosed plenum corners, removing combustible fuel loads before they cause municipal penalties or fire disasters.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-[#00e5ff]">
+            <h4 class="font-bold text-white text-sm mb-1">Focused Cleaning</h4>
+            <p class="text-slate-400 text-xs">Direct chemical targeting on heavy carbon accumulation zones.</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-[#00e5ff]">
+            <h4 class="font-bold text-white text-sm mb-1">Professional Service</h4>
+            <p class="text-slate-400 text-xs">Certified technicians equipped with rotary mechanical shafts.</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-[#00e5ff]">
+            <h4 class="font-bold text-white text-sm mb-1">Property-First Approach</h4>
+            <p class="text-slate-400 text-xs">Zero equipment damage, watertight sealing, and clean handovers.</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-[#00e5ff]">
+            <h4 class="font-bold text-white text-sm mb-1">Detailed Work</h4>
+            <p class="text-slate-400 text-xs">Comprehensive photo audit dossiers submitted post-service.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-8 border border-white/10 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00e5ff]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#00e5ff] block mb-2">Technical Standards</span>
+        <h3 class="font-syne text-xl font-bold text-white mb-6">Extraction Compliance Verification</h3>
+        
+        <div class="space-y-4 text-xs">
+          <div class="p-4 rounded-xl bg-white/5 flex items-center justify-between">
+            <span class="text-slate-300">NFPA 96 Fire Code Compliance</span>
+            <span class="text-[#00e5ff] font-bold">Passed (0.0mm Target)</span>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 flex items-center justify-between">
+            <span class="text-slate-300">Abu Dhabi Municipality Sanitation Standard</span>
+            <span class="text-[#00e5ff] font-bold">100% Guaranteed</span>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 flex items-center justify-between">
+            <span class="text-slate-300">Food-Safe Chemical Certification</span>
+            <span class="text-[#00e5ff] font-bold">Bio-Degradable Formula</span>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 flex items-center justify-between">
+            <span class="text-slate-300">Static Pressure Restoration Rate</span>
+            <span class="text-[#00e5ff] font-bold">+28% Airflow Recovery</span>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-slate-400 block">Emergency Inspection Desk</span>
+            <span class="font-syne text-base font-bold text-white">+971 52 618 6156</span>
+          </div>
+          <a href="tel:+971526186156" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-[#00e5ff] text-white hover:text-black font-bold text-xs uppercase tracking-wider transition">
+            Call Desk
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. REAL-TIME AED ESTIMATOR SECTION -->
+  <section id="estimator" class="py-24 px-6 relative bg-gradient-to-b from-[#030a16] via-[#061429] to-[#030a16]">
+    <div class="max-w-4xl mx-auto glass-panel rounded-3xl p-8 sm:p-12 border border-[#00e5ff]/30 cyan-glow">
+      <div class="text-center mb-10">
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Instant Calculation</span>
+        <h2 class="font-syne text-2xl sm:text-4xl font-bold text-white">Interactive AED Scope & Rate Estimator</h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2">Configure your facility requirements for an instant accurate Dirham estimate.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="space-y-5 text-xs">
+          <div>
+            <label class="block font-bold text-slate-300 uppercase tracking-wider mb-2">Facility Category</label>
+            <select id="calcFacility" onchange="calculateAED()" class="w-full bg-[#030a16] border border-white/15 rounded-2xl p-3.5 text-white focus:outline-none focus:border-[#00e5ff]">
+              <option value="1.0">Standalone Restaurant / Bistro</option>
+              <option value="1.3">High-Volume Fast Food / Grilling Kitchen</option>
+              <option value="1.6">Hotel Central Kitchen / Banquet Hall</option>
+              <option value="1.2">Commercial Cloud Kitchen Facility</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-300 uppercase tracking-wider mb-2">Cleaning Scope</label>
+            <select id="calcScope" onchange="calculateAED()" class="w-full bg-[#030a16] border border-white/15 rounded-2xl p-3.5 text-white focus:outline-none focus:border-[#00e5ff]">
+              <option value="850">Canopy Hood + Baffle Filters Only</option>
+              <option value="1800">Complete Hood + Ductwork + Exhaust Fan</option>
+              <option value="2600">Full Kitchen Turnover (Hood + MEP + Deep Wash)</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="font-bold text-slate-300 uppercase tracking-wider">Estimated Duct Length</label>
+              <span id="ductLenVal" class="text-[#00e5ff] font-bold">12 Meters</span>
+            </div>
+            <input type="range" id="calcDuct" min="5" max="50" value="12" step="1" oninput="calculateAED()" class="w-full accent-[#00e5ff] cursor-pointer">
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <span class="text-slate-400 text-xs uppercase tracking-wider block">Estimated Service Investment:</span>
+            <div class="font-syne text-4xl sm:text-5xl font-extrabold text-[#00e5ff] my-4 tracking-tight" id="calcOutput">
+              2,160 AED
+            </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              *Estimate includes full chemical treatment, waste removal, before/after compliance photography, and Abu Dhabi municipal certification report.
+            </p>
+          </div>
+
+          <button onclick="dispatchWhatsAppEstimate()" class="mt-6 w-full py-4 rounded-2xl bg-gradient-to-r from-[#00e5ff] to-[#0077ff] text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-lg cyan-glow">
+            Send This Exact Spec to WhatsApp →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. OUR APPROACH -->
+  <section id="approach" class="py-24 px-6 relative bg-[#030a16]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Methodology</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white">
+          Simple.<br>
+          <span class="text-gradient">Clear. Professional.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-[#00e5ff]/40 transition">
+          <span class="font-syne text-3xl font-extrabold text-[#00e5ff]/30 block mb-4">01</span>
+          <h3 class="font-syne text-base font-bold text-white mb-2">Tell us the job</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Submit your facility layout, duct length, and required cleaning schedule in Abu Dhabi.</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-[#00e5ff]/40 transition">
+          <span class="font-syne text-3xl font-extrabold text-[#00e5ff]/30 block mb-4">02</span>
+          <h3 class="font-syne text-base font-bold text-white mb-2">Understand the space</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Our technicians inspect access panel availability, grease load density, and rooftop fan units.</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-[#00e5ff]/40 transition">
+          <span class="font-syne text-3xl font-extrabold text-[#00e5ff]/30 block mb-4">03</span>
+          <h3 class="font-syne text-base font-bold text-white mb-2">Plan the service</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Execution timing scheduled during closing or overnight hours to avoid any business interruption.</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/10 hover:border-[#00e5ff]/40 transition">
+          <span class="font-syne text-3xl font-extrabold text-[#00e5ff]/30 block mb-4">04</span>
+          <h3 class="font-syne text-base font-bold text-white mb-2">Get it cleaned</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Deep degreasing completed to bare metal with Civil Defense verification sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ABOUT BLUE LINE -->
+  <section id="about" class="py-24 px-6 relative bg-gradient-to-b from-[#030a16] via-[#051124] to-[#030a16]">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-[#00e5ff] text-xs font-bold uppercase tracking-[0.2em] block mb-2">Corporate Profile</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white leading-tight mb-6">
+          A cleaner standard for<br>
+          <span class="text-gradient">maintained spaces.</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+          Blue Line Facility Management LLC is a property maintenance business based in Abu Dhabi, United Arab Emirates, providing specialist cleaning and facility-management services.
+        </p>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
+          We combine technical engineering rigor with high-grade industrial hygiene. From hotel extraction ducts to residential property MEP maintenance, our teams ensure uninterrupted operation, regulatory safety, and spotless aesthetic results.
+        </p>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-8 border border-white/10">
+        <h3 class="font-syne text-lg font-bold text-white mb-6 border-b border-white/10 pb-4">Business Information</h3>
+        <div class="space-y-4 text-xs">
+          <div class="flex justify-between items-center py-2 border-b border-white/5">
+            <span class="text-slate-400 uppercase tracking-wider">Location:</span>
+            <span class="text-white font-semibold">Abu Dhabi, UAE</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-white/5">
+            <span class="text-slate-400 uppercase tracking-wider">Business Category:</span>
+            <span class="text-white font-semibold">Property Maintenance</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-white/5">
+            <span class="text-slate-400 uppercase tracking-wider">Speciality:</span>
+            <span class="text-[#00e5ff] font-semibold">Specialist Cleaning & Degreasing</span>
+          </div>
+          <div class="flex justify-between items-center py-2 border-b border-white/5">
+            <span class="text-slate-400 uppercase tracking-wider">Direct Phone:</span>
+            <a href="tel:+971526186156" class="text-white font-semibold hover:text-[#00e5ff]">+971 52 618 6156</a>
+          </div>
+          <div class="flex justify-between items-center py-2">
+            <span class="text-slate-400 uppercase tracking-wider">WhatsApp Dispatch:</span>
+            <a href="https://wa.me/971526186156" target="_blank" class="text-[#00e5ff] font-bold">+971 52 618 6156 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTACT / CTA SECTION -->
+  <section id="contact" class="py-24 px-6 relative bg-[#030a16]">
+    <div class="max-w-5xl mx-auto glass-panel rounded-3xl p-10 sm:p-16 border border-[#00e5ff]/30 text-center relative overflow-hidden cyan-glow">
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="font-syne text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
+          Need your property<br>
+          <span class="text-gradient">cleaned or maintained?</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-10">
+          Contact Blue Line Facility Management LLC and tell us what service you need. Fast on-site survey and certified compliance across Abu Dhabi.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/971526186156?text=Hello%20Blue%20Line%2C%20I%20need%20property%20maintenance%20or%20cleaning%20services" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="px-8 py-4 rounded-full bg-[#25d366] hover:bg-[#20ba59] text-black font-extrabold text-xs uppercase tracking-wider transition shadow-lg flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp Us</span>
+          </a>
+          <a href="tel:+971526186156" 
+             class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition border border-white/15">
+            Call +971 52 618 6156
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer class="py-16 px-6 border-t border-white/10 bg-[#02060f] text-slate-400 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div>
+        <span class="font-syne text-xl font-bold text-white block">BLUE LINE</span>
+        <span class="text-[10px] font-bold tracking-[0.2em] text-[#00e5ff] uppercase block mb-2">FACILITY MANAGEMENT LLC</span>
+        <p class="max-w-xs text-[11px] leading-relaxed">Property maintenance & specialist cleaning in Abu Dhabi, United Arab Emirates.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#services" class="hover:text-[#00e5ff] transition">Services</a>
+        <a href="#packages" class="hover:text-[#00e5ff] transition">Packages</a>
+        <a href="#specialist" class="hover:text-[#00e5ff] transition">Specialist Scope</a>
+        <a href="#approach" class="hover:text-[#00e5ff] transition">Approach</a>
+        <a href="#about" class="hover:text-[#00e5ff] transition">About</a>
+      </div>
+
+      <div class="text-left md:text-right">
+        <p class="text-white font-bold">Phone: +971 52 618 6156</p>
+        <p class="text-[#00e5ff] font-bold mt-1">WhatsApp: +971 52 618 6156</p>
+        <p class="text-[10px] text-slate-500 mt-2">© <span id="footerYear"></span> Blue Line Facility Management LLC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC TECHNICAL MODAL -->
+  <div id="serviceModal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-panel max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-[#00e5ff]/40 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl font-bold">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('footerYear').innerText = new Date().getFullYear();
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMenu);
+
+    function calculateAED() {
+      const facilityMultiplier = parseFloat(document.getElementById('calcFacility').value);
+      const baseScope = parseFloat(document.getElementById('calcScope').value);
+      const ductMeters = parseInt(document.getElementById('calcDuct').value);
+
+      document.getElementById('ductLenVal').innerText = ductMeters + ' Meters';
+
+      const ductAddon = (ductMeters - 5) * 55;
+      const total = Math.round((baseScope + ductAddon) * facilityMultiplier);
+
+      document.getElementById('calcOutput').innerText = total.toLocaleString() + ' AED';
+    }
+
+    function dispatchWhatsAppEstimate() {
+      const facility = document.getElementById('calcFacility').selectedOptions[0].text;
+      const scope = document.getElementById('calcScope').selectedOptions[0].text;
+      const duct = document.getElementById('ductLenVal').innerText;
+      const price = document.getElementById('calcOutput').innerText;
+
+      const msg = `Hello Blue Line Facility Management,
+I ran an inquiry estimate on your website:
+- Facility: ${facility}
+- Scope: ${scope}
+- Duct Length: ${duct}
+- Calculated Estimate: ${price}
+Please let me know when your team can schedule an on-site survey.`;
+
+      window.open(`https://wa.me/971526186156?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    const modalData = {
+      hood: {
+        title: "Kitchen Hood Technical Standards",
+        badge: "NFPA 96 & Abu Dhabi Municipality",
+        items: [
+          "Manual rotary scraping of caked flammable grease on internal canopy walls.",
+          "High-temperature food-safe caustic chemical degreaser application.",
+          "Cleaning of plenum, vapor collection gutters, and drain cups.",
+          "Polishing to stainless steel bare metal standard with zero chemical residue."
+        ]
+      },
+      duct: {
+        title: "Kitchen Duct Degreasing Standards",
+        badge: "Deep Mechanical Scrape",
+        items: [
+          "Inspection of horizontal duct runs and vertical risers via access doors.",
+          "Installation of certified air-tight access panels where required.",
+          "High-torque rotary brush shaft degreasing across entire interior length.",
+          "Complete photo documentation dossier for municipality compliance."
+        ]
+      },
+      fan: {
+        title: "Exhaust & Centrifugal Fan Overhaul",
+        badge: "Airflow Restoration",
+        items: [
+          "Disassembly and isolation of rooftop or inline exhaust blower units.",
+          "Removal of unbalancing carbon and grease sludge from impeller blades.",
+          "Motor housing cleaning, drive belt tension check, and bearing lubrication.",
+          "Static air pressure and electrical amp draw verification."
+        ]
+      },
+      filter: {
+        title: "Grease Filter Maintenance Protocol",
+        badge: "Thermal Immersion Clean",
+        items: [
+          "Removal and inspection of stainless steel baffle filters for structural warping.",
+          "Heated immersion soak in non-corrosive carbon-release enzyme solution.",
+          "High-pressure hot rinse to restore 100% unrestricted airflow.",
+          "Application of preventative anti-adhesion food-grade coating."
+        ]
+      },
+      deep: {
+        title: "Commercial Deep Sanitation Scope",
+        badge: "Hospital-Grade Protocol",
+        items: [
+          "High-pressure steam cleaning of tiled wall grout lines and slip-proof floors.",
+          "Chemical sanitization behind cooking equipment lines and cold storage.",
+          "Elimination of bacterial biofilm and pest attraction points.",
+          "Disinfection certificate issued upon job completion."
+        ]
+      },
+      mep: {
+        title: "Property MEP Maintenance Coverage",
+        badge: "Continuous Facility Care",
+        items: [
+          "Quarterly preventive electrical panel inspection and load balancing.",
+          "Drain line high-pressure jetting and commercial grease trap cleaning.",
+          "Fresh air supply and HVAC condenser coil chemical wash.",
+          "24/7 dedicated emergency technical dispatch SLA."
+        ]
+      }
+    };
+
+    function openModal(serviceKey) {
+      const data = modalData[serviceKey];
+      if (!data) return;
+
+      const html = `
+        <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#00e5ff] bg-[#00e5ff]/10 px-3 py-1 rounded-full border border-[#00e5ff]/20 mb-3 inline-block">
+          ${data.badge}
+        </span>
+        <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-4">${data.title}</h3>
+        <ul class="space-y-3 text-xs text-slate-300 mb-6">
+          ${data.items.map(item => `<li class="flex items-start gap-2.5"><span class="text-[#00e5ff] font-bold">✓</span><span>${item}</span></li>`).join('')}
+        </ul>
+        <a href="https://wa.me/971526186156?text=Inquiry%20regarding%20${encodeURIComponent(data.title)}" target="_blank" class="w-full block text-center py-3.5 rounded-xl bg-gradient-to-r from-[#00e5ff] to-[#0077ff] text-black font-extrabold text-xs uppercase tracking-wider transition">
+          Book This Technical Scope via WhatsApp →
+        </a>
+      `;
+
+      document.getElementById('modalContent').innerHTML = html;
+      document.getElementById('serviceModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('serviceModal').classList.add('hidden');
+    }
+
+    document.getElementById('serviceModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    calculateAED();
+  </script>
+</body>
+</html>
